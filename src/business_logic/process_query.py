@@ -3,9 +3,9 @@ import logging
 
 import joblib
 
-from src.IO.get_data_from_yahoo import get_last_stock_price
-from src.IO.storage_tools import create_bucket, get_model_from_bucket, upload_file_to_bucket
-from src.algo.dummy_model import Stock_model
+from stock228.src.IO.get_data_from_yahoo import get_last_stock_price
+from stock228.src.IO.storage_tools import create_bucket, get_model_from_bucket, upload_file_to_bucket
+from stock228.src.algo.dummy_model import Stock_model
 
 
 def create_business_logic():

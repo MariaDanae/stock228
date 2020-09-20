@@ -1,6 +1,6 @@
 from flask import Flask
 
-from src.business_logic.process_query import create_business_logic
+from stock228.src.business_logic.process_query import create_business_logic
 
 app = Flask(__name__)
 
