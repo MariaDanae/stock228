@@ -1,5 +1,6 @@
 from flask import Flask
 
+from stock228.src.IO.get_data_from_yahoo import get_last_close_price
 from stock228.src.business_logic.process_query import create_business_logic
 
 app = Flask(__name__)
@@ -14,8 +15,12 @@ def hello():
 def get_stock_value(ticker):
     bl = create_business_logic()
     prediction = bl.do_predictions_for(ticker)
+    last_close_price = get_last_close_price(ticker)
+    last_close = last_close_price.get("close")
+    last_date = last_close_price.get("date")
 
-    return f'{prediction}\n'
+    return f'Prediction for ticker {ticker} {prediction}' \
+           f'\n\nLast close price was: {last_close} on {last_date}'
 
 
 if __name__ == '__main__':
