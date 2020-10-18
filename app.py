@@ -17,10 +17,9 @@ def get_stock_value(ticker):
     prediction = bl.do_predictions_for(ticker)
     last_close_price = get_last_close_price(ticker)
     last_close = last_close_price.get("close")
-    last_date = last_close_price.get("date")
 
     return f'Prediction for ticker {ticker} {prediction}' \
-           f'\n\nLast close price was: {last_close} on {last_date}'
+           f'\n\nLast close price was: {last_close}'
 
 
 if __name__ == '__main__':
