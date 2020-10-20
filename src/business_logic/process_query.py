@@ -2,6 +2,7 @@ import configparser
 import logging
 
 import joblib
+from sklearn.model_selection import train_test_split
 
 from stock228.src.IO.get_data_from_yahoo import get_last_stock_price
 from stock228.src.IO.storage_tools import create_bucket, get_model_from_bucket, upload_file_to_bucket
@@ -50,3 +51,13 @@ class BusinessLogic:
         model = self._get_or_create_model(ticker)
         predictions = model.predict(ticker)
         return predictions
+
+    # def create_df(self, ticker):
+    #     model = self._get_or_create_model(ticker)
+    #     return model.create_df(ticker)
+    #
+    # def create_X_Y_test(self, df_lags, test_size=0.2):
+    #     X = df_lags.drop('lags_0', axis=1)
+    #     Y = df_lags[['lags_0']]
+    #     X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=test_size)
+    #     return X_train, X_test, y_train, y_test
